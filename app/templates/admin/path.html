@@ -1,0 +1,22 @@
+{% extends 'admin/base.html' %}
+{% block title %}
+    {{ super() }}
+    路径管理
+{% endblock %}
+{% block content %}
+    <h1>设置上传路径</h1>
+    <hr>
+    <div class="col-md-6 col-md-offset-3">
+        <form method="post" enctype="multipart/form-data" action="">
+            {{ pathForm.hidden_tag() }}
+            <div class="panel panel-info">
+                <div class="panel-heading">上传路径设置</div>
+                <div class="panel-body">
+                    {{ pathForm.path(class="form-control", value=path.markdown, placeholder="请首先设置上传路径", required="") }}
+                    <hr>
+                    {% include 'admin/alert.html' %}{{ pathForm.submit(class="btn btn-default pull-right") }}
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
